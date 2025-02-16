@@ -8,6 +8,9 @@ export interface Product {
 
 export interface User {
   id: number
-  email: string
+  login: string
   password: string
+  roles: ('admin' | 'user')[]
+  gender: 'male' | 'female'
+  age: number
 }

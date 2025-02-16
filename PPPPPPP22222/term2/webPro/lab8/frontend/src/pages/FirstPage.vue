@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <div>First Page</div>
-    <div v-for="u in userStore.users" :key="u.id">{{ u.email }}</div>
+    <div v-for="u in userStore.users" :key="u.id">{{ u.login }}</div>
     <div v-for="p in products" :key="p.id">
       <ProductCard :product="p" @select="select"></ProductCard>
     </div>
