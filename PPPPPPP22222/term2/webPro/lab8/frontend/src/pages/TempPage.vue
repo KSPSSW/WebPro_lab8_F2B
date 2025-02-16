@@ -19,7 +19,7 @@ const fahrenheit = ref<number>(0)
 function convertToFahrenheit() {
   // fahrenheit.value = (temperature.value * 9) / 5 + 32
   api
-    .get('/temperature/convert?celsius=' + temperature.value)
+    .get('/temperature/convert-param/' + temperature.value)
     .then((res) => {
       console.log(res)
       console.log(res.data)
