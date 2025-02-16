@@ -3,5 +3,4 @@ export class CreateProductDto {
     price: number;
     size: string; // 'SMLE'
     image: string;
-
 }
