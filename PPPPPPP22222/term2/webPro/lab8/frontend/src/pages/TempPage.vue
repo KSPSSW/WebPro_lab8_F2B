@@ -16,20 +16,30 @@ import { api } from 'src/boot/axios'
 import { ref } from 'vue'
 const temperature = ref<number>(0)
 const fahrenheit = ref<number>(0)
-function convertToFahrenheit() {
+async function convertToFahrenheit() {
   // fahrenheit.value = (temperature.value * 9) / 5 + 32
-  api
-    .post('/temperature/convert-body/', { celsius: temperature.value })
-    .then((res) => {
-      console.log(res)
-      console.log(res.data)
-      fahrenheit.value = res.data.fahrenheit
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-    .finally(() => {
-      console.log('finally')
-    })
+  // api
+  //   .post('/temperature/convert-body/', { celsius: temperature.value })
+  //   .then((res) => {
+  //     console.log(res)
+  //     console.log(res.data)
+  //     fahrenheit.value = res.data.fahrenheit
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  //   .finally(() => {
+  //     console.log('finally')
+  //   })
+  try {
+    const res = await api.post('/temperature/convert-body/', { celsius: temperature.value })
+    console.log(res)
+    console.log(res.data)
+    fahrenheit.value = res.data.fahrenheit
+  } catch (err) {
+    console.log(err)
+  } finally {
+    console.log('finally')
+  }
 }
 </script>
