@@ -57,6 +57,12 @@ const linksList: EssentialLinkProps[] = [
     icon: 'thermostat',
     link: '/temp-page',
   },
+  {
+    title: 'Product',
+    caption: 'Product Page',
+    icon: 'inventory',
+    link: '/product-page',
+  },
 ]
 
 const leftDrawerOpen = ref(false)
