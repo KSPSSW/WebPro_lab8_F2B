@@ -6,13 +6,19 @@ export const useUserStore = defineStore('user', () => {
   const users = ref<User[]>([
     {
       id: 1,
-      email: 'admin@mail.com',
+      login: 'admin@mail.com',
       password: 'Pass@1234',
+      roles: ['admin'],
+      gender: 'male',
+      age: 42,
     },
     {
       id: 2,
-      email: 'user@mail.com',
+      login: 'user@mail.com',
       password: 'Pass@1234',
+      roles: ['user'],
+      gender: 'male',
+      age: 30,
     },
   ])
 
@@ -32,8 +38,8 @@ export const useUserStore = defineStore('user', () => {
     })
     users.value[index] = { ...u }
   }
-  function getUserByEmail(email: string): User | undefined {
-    return users.value.find((item) => item.email === email)
+  function getUserByEmail(login: string): User | undefined {
+    return users.value.find((item) => item.login === login)
   }
   return { users, addUser, delUser, updateUser, getUserByEmail }
 })
