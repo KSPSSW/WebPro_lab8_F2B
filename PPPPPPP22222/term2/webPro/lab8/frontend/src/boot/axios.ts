@@ -16,6 +16,21 @@ declare module 'vue' {
 // for each client)
 const api = axios.create({ baseURL: 'http://localhost:3000' })
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+api.interceptors.request.use(async (config) => {
+  console.log('Request was sent', config)
+  await sleep(1000)
+  return config
+})
+
+api.interceptors.response.use(async (response) => {
+  await sleep(1000)
+  console.log('Response was received', response)
+  return response
+})
+
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
